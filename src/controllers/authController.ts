@@ -1,4 +1,4 @@
-﻿import { Request, Response } from "express";
+import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { User, IUser } from "../models/User";
@@ -12,8 +12,8 @@ const generateToken = (user: IUser): string => {
       email: user.email,
       role: user.role,
     },
-    secret,
-    { expiresIn }
+    secret as jwt.Secret,
+    { expiresIn: expiresIn as any }
   );
 };
 
