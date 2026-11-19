@@ -3,13 +3,8 @@ import { connectDB } from "./config/db";
 
 const PORT = process.env.PORT || 5000;
 
-const startServer = async () => {
-  // Connect to Database
-  await connectDB();
-
-  app.listen(PORT, () => {
-    console.log(`WedPlan Server running on port ${PORT}`);
-  });
-};
-
-startServer();
+app.listen(PORT, () => {
+  console.log(`WedPlan Server running on port ${PORT}`);
+  // Connect to Database in background
+  connectDB().catch((err) => console.warn("Database connection notice:", err.message));
+});
