@@ -1,4 +1,4 @@
-﻿import mongoose from "mongoose";
+import mongoose from "mongoose";
 
 export const connectDB = async (): Promise<void> => {
   try {
@@ -11,6 +11,6 @@ export const connectDB = async (): Promise<void> => {
     console.log("Connected to MongoDB successfully");
   } catch (error) {
     console.error("MongoDB connection error:", error);
-    process.exit(1);
+    console.warn("Server continuing in offline mode until valid MONGODB_URI is provided in .env");
   }
 };
