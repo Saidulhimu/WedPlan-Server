@@ -1,8 +1,15 @@
 ﻿import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import dotenv from "dotenv";
+import dns from "dns";
 import { User } from "../models/User";
 import { Service } from "../models/Service";
+
+try {
+  dns.setServers(["8.8.8.8", "1.1.1.1"]);
+} catch (e) {
+  // Ignore fallback
+}
 
 dotenv.config();
 

@@ -1,4 +1,12 @@
 import mongoose from "mongoose";
+import dns from "dns";
+
+// Ensure robust SRV record resolution across all Windows network environments
+try {
+  dns.setServers(["8.8.8.8", "1.1.1.1"]);
+} catch (e) {
+  // Ignore fallback
+}
 
 export const connectDB = async (): Promise<void> => {
   try {
