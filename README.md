@@ -50,7 +50,10 @@ NODE_ENV=development
 CLIENT_URL=http://localhost:3000
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/wedplan?retryWrites=true&w=majority
 JWT_SECRET=your_jwt_secret_key_minimum_32_characters_here
+BETTER_AUTH_SECRET=your_better_auth_secret_key_here
 JWT_EXPIRES_IN=7d
+GOOGLE_CLIENT_ID=your_google_oauth_client_id_here
+GOOGLE_CLIENT_SECRET=your_google_oauth_client_secret_here
 STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key_here
 STRIPE_WEBHOOK_SECRET=whsec_your_stripe_webhook_secret_here
 ADMIN_NAME="Platform Admin"
@@ -64,7 +67,7 @@ ADMIN_PASSWORD=Admin123!
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/saidulhimuu/WedPlan-Server.git
+   git clone https://github.com/Saidulhimu/WedPlan-Server.git
    cd WedPlan-Server
    ```
 
@@ -96,8 +99,8 @@ ADMIN_PASSWORD=Admin123!
 
 ## 🔗 Repository & Live Links
 
-- **Server Repository**: [https://github.com/saidulhimuu/WedPlan-Server](https://github.com/saidulhimuu/WedPlan-Server)
-- **Client Repository**: [https://github.com/saidulhimuu/WedPlan-Client](https://github.com/saidulhimuu/WedPlan-Client)
+- **Server Repository**: [https://github.com/Saidulhimu/WedPlan-Server](https://github.com/Saidulhimu/WedPlan-Server)
+- **Client Repository**: [https://github.com/Saidulhimu/WedPlan-Client](https://github.com/Saidulhimu/WedPlan-Client)
 - **Live Server API**: [https://wedplan-server.onrender.com](https://wedplan-server.onrender.com) (or your deployment URL)
 - **Live Client Web App**: [https://wedplan-client.vercel.app](https://wedplan-client.vercel.app) (or your deployment URL)
 
