@@ -1,4 +1,4 @@
-﻿# WedPlan Server — Backend REST API for Wedding Planning Platform
+# WedPlan Server — Backend REST API for Wedding Planning Platform
 
 WedPlan is a modern, high-performance wedding planning platform connecting couples with verified wedding service vendors across various categories. This repository houses the complete backend REST API built with Node.js, Express, TypeScript, MongoDB, JWT authentication, and Stripe payment gateway.
 
@@ -109,11 +109,11 @@ ADMIN_PASSWORD=Admin123!
 ## 🔐 Demo Credentials for Evaluation
 
 - **Admin Account**:
-  - Email: `admin@wedplan.com`
-  - Password: `Admin123!`
+  - Email: `saidulhimuu@gmail.com`
+  - Password: `Himel12345`
 - **Vendor Account**:
-  - Email: `vendor@wedplan.com`
-  - Password: `Vendor123!`
+  - Email: `saidulislam5595@gmail.com`
+  - Password: `saidul12345`
 - **Customer Account**:
-  - Email: `customer@wedplan.com`
-  - Password: `Customer123!`
+  - Email: `hmcreationn@gmail.com`
+  - Password: `hm123456`

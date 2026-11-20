@@ -26,57 +26,60 @@ const seedDatabase = async () => {
 
     // Password hashes
     const salt = await bcrypt.genSalt(10);
-    const adminPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD || "Admin123!", salt);
-    const vendorPassword = await bcrypt.hash("Vendor123!", salt);
-    const customerPassword = await bcrypt.hash("Customer123!", salt);
+    const adminPassword = await bcrypt.hash(process.env.ADMIN_PASSWORD || "Himel12345", salt);
+    const vendorPassword = await bcrypt.hash("saidul12345", salt);
+    const customerPassword = await bcrypt.hash("hm123456", salt);
 
-    // 1. Seed Admin
-    const adminEmail = (process.env.ADMIN_EMAIL || "admin@wedplan.com").toLowerCase();
-    let admin = await User.findOne({ email: adminEmail });
-    if (!admin) {
-      admin = await User.create({
-        name: process.env.ADMIN_NAME || "Platform Admin",
+    // 1. Seed or Update Admin
+    const adminEmail = (process.env.ADMIN_EMAIL || "saidulhimuu@gmail.com").toLowerCase();
+    let admin = await User.findOneAndUpdate(
+      { email: adminEmail },
+      {
+        name: process.env.ADMIN_NAME || "Saidul Islam",
         email: adminEmail,
         password: adminPassword,
         role: "admin",
         subscriptionPlan: "premium",
         isBlocked: false,
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
-      });
-      console.log("Admin account created:", admin.email);
-    } else {
-      console.log("Admin account already exists.");
-    }
+        image: "/uploads/admin-profile.jpg",
+      },
+      { upsert: true, new: true }
+    );
+    console.log("Admin account configured:", admin.email);
 
-    // 2. Seed Vendor
-    let vendor = await User.findOne({ email: "vendor@wedplan.com" });
-    if (!vendor) {
-      vendor = await User.create({
-        name: "Elena Rostova",
-        email: "vendor@wedplan.com",
+    // 2. Seed or Update Vendor
+    const vendorEmail = "saidulislam5595@gmail.com";
+    let vendor = await User.findOneAndUpdate(
+      { email: vendorEmail },
+      {
+        name: "Saidul Islam",
+        email: vendorEmail,
         password: vendorPassword,
         role: "vendor",
-        businessName: "Lumiere Wedding Moments & Decor",
-        subscriptionPlan: "premium",
+        businessName: "Saidul Artistry & Wedding Studio",
+        subscriptionPlan: "free",
         isBlocked: false,
         image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400",
-      });
-      console.log("Demo Vendor created: vendor@wedplan.com / Vendor123!");
-    }
+      },
+      { upsert: true, new: true }
+    );
+    console.log("Vendor account configured:", vendor.email);
 
-    // 3. Seed Customer
-    let customer = await User.findOne({ email: "customer@wedplan.com" });
-    if (!customer) {
-      customer = await User.create({
-        name: "Sophia & Liam Johnson",
-        email: "customer@wedplan.com",
+    // 3. Seed or Update Customer
+    const customerEmail = "hmcreationn@gmail.com";
+    let customer = await User.findOneAndUpdate(
+      { email: customerEmail },
+      {
+        name: "HM Creation",
+        email: customerEmail,
         password: customerPassword,
         role: "customer",
         isBlocked: false,
         image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
-      });
-      console.log("Demo Customer created: customer@wedplan.com / Customer123!");
-    }
+      },
+      { upsert: true, new: true }
+    );
+    console.log("Customer account configured:", customer.email);
 
     // 4. Seed Services if count < 6
     const serviceCount = await Service.countDocuments();
