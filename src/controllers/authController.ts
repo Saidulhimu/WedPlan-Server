@@ -151,6 +151,7 @@ export const googleAuth = async (req: Request, res: Response): Promise<void> => 
         email: email.toLowerCase(),
         image: image || "",
         role: assignedRole,
+        businessName: assignedRole === "vendor" ? (req.body.businessName || `${name || "Vendor"}'s Studio`) : undefined,
         subscriptionPlan: "free",
         isBlocked: false,
       });
