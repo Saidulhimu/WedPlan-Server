@@ -9,6 +9,7 @@ import adminRoutes from "./routes/adminRoutes";
 import userRoutes from "./routes/userRoutes";
 import { handleStripeWebhook } from "./controllers/paymentController";
 import { errorHandler } from "./middlewares/errorHandler";
+import { connectDB } from "./config/db";
 
 dotenv.config();
 
@@ -45,6 +46,37 @@ app.post(
 // Regular JSON parser for all standard API routes
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+
+// Ensure MongoDB is connected for Serverless / Cloud environments
+app.use(async (_req: Request, _res: Response, next) => {
+  try {
+    await connectDB();
+  } catch (err: any) {
+    console.warn("DB connection notice:", err?.message);
+  }
+  next();
+});
+
+// Root Route: Service Health & Information
+app.get("/", (_req: Request, res: Response) => {
+  res.status(200).json({
+    success: true,
+    message: "WedPlan Luxury Wedding API is live & operational on Vercel 🚀",
+    status: "healthy",
+    version: "1.0.0",
+    timestamp: new Date().toISOString(),
+    endpoints: {
+      health: "/api/health",
+      auth: "/api/auth",
+      services: "/api/services",
+      bookings: "/api/bookings",
+      payment: "/api/payment",
+      admin: "/api/admin",
+      users: "/api/users",
+    },
+    environment: process.env.NODE_ENV || "production",
+  });
+});
 
 // Health Check
 app.get("/api/health", (_req: Request, res: Response) => {

@@ -8,14 +8,23 @@ try {
   // Ignore fallback
 }
 
+let isConnected = false;
+
 export const connectDB = async (): Promise<void> => {
+  if (mongoose.connection.readyState >= 1 || isConnected) {
+    return;
+  }
+
   try {
     const mongoUri = process.env.MONGODB_URI;
     if (!mongoUri) {
       console.warn("MONGODB_URI is not defined in environment variables. Database connection skipped.");
       return;
     }
-    await mongoose.connect(mongoUri);
+    await mongoose.connect(mongoUri, {
+      serverSelectionTimeoutMS: 5000,
+    });
+    isConnected = true;
     console.log("Connected to MongoDB successfully");
   } catch (error) {
     console.error("MongoDB connection error:", error);
