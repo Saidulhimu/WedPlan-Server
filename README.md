@@ -56,9 +56,9 @@ GOOGLE_CLIENT_ID=your_google_oauth_client_id_here
 GOOGLE_CLIENT_SECRET=your_google_oauth_client_secret_here
 STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key_here
 STRIPE_WEBHOOK_SECRET=whsec_your_stripe_webhook_secret_here
-ADMIN_NAME="Platform Admin"
-ADMIN_EMAIL=admin@wedplan.com
-ADMIN_PASSWORD=Admin123!
+ADMIN_NAME="Saidul Islam"
+ADMIN_EMAIL=saidulhimuu@gmail.com
+ADMIN_PASSWORD=Himel12345
 ```
 
 ---
@@ -77,7 +77,7 @@ ADMIN_PASSWORD=Admin123!
    ```
 
 3. **Configure Environment Variables**:
-   Copy `.env.example` to `.env` and fill in your MongoDB URI and Stripe keys.
+   Create a `.env` file and fill in your MongoDB URI and Stripe keys.
 
 4. **Seed Database (Admin & Demo Data)**:
    ```bash
@@ -101,8 +101,8 @@ ADMIN_PASSWORD=Admin123!
 
 - **Server Repository**: [https://github.com/Saidulhimu/WedPlan-Server](https://github.com/Saidulhimu/WedPlan-Server)
 - **Client Repository**: [https://github.com/Saidulhimu/WedPlan-Client](https://github.com/Saidulhimu/WedPlan-Client)
-- **Live Server API**: [https://wedplan-server.onrender.com](https://wedplan-server.onrender.com) (or your deployment URL)
-- **Live Client Web App**: [https://wedplan-client.vercel.app](https://wedplan-client.vercel.app) (or your deployment URL)
+- **Live Server API**: [https://wed-plan-server-omega.vercel.app](https://wed-plan-server-omega.vercel.app)
+- **Live Client Web App**: [https://wed-plan-client-omega.vercel.app](https://wed-plan-client-omega.vercel.app)
 
 ---
 
